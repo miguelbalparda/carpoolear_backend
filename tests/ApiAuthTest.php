@@ -5,7 +5,7 @@ use Tymon\JWTAuth\Token;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ApiAuthTest extends TestCase
+class ApiAuthTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

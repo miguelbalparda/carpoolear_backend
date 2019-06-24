@@ -7,7 +7,7 @@ use STS\Entities\Passenger;
 use STS\Transformers\RatingTransformer;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class RatingTest extends TestCase
+class RatingTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

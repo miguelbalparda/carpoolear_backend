@@ -6,7 +6,7 @@ use STS\Entities\Subscription;
 use STS\Transformers\RatingTransformer;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SubscriptionsTest extends TestCase
+class SubscriptionsTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

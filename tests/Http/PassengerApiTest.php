@@ -5,7 +5,7 @@ use STS\Entities\Trip;
 use STS\Entities\Passenger;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class PassengerApiTest extends TestCase
+class PassengerApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

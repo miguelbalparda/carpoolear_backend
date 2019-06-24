@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use STS\Services\Notifications\Models\ValueNotification;
 use STS\Services\Notifications\Models\DatabaseNotification;
 
-class NotificationTest extends TestCase
+class NotificationTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

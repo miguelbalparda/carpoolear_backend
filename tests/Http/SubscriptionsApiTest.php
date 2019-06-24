@@ -3,7 +3,7 @@
 use Mockery as m;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SubscriptionApiTest extends TestCase
+class SubscriptionApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

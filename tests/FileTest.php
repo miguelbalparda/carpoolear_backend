@@ -1,6 +1,6 @@
 <?php
 
-class FileTest extends TestCase
+class FileTest extends BrowserKitTestCase
 {
     protected $userManager;
 

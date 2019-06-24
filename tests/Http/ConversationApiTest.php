@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ConversationApiTest extends TestCase
+class ConversationApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

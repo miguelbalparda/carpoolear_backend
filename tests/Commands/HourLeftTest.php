@@ -6,7 +6,7 @@ use STS\Entities\Trip;
 use STS\Entities\Passenger;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class HourLeftTest extends TestCase
+class HourLeftTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

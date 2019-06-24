@@ -4,7 +4,7 @@ use Mockery as m;
 use STS\Entities\Trip;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class TripApiTest extends TestCase
+class TripApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

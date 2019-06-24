@@ -5,7 +5,7 @@ use STS\Entities\Trip;
 use STS\Entities\Rating;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class RatingApiTest extends TestCase
+class RatingApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
