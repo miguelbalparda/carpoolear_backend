@@ -16,7 +16,7 @@ class SubscriptionApiTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->subscriptionsLogic = $this->mock('STS\Contracts\Logic\Subscription');
+        $this->subscriptionsLogic = $this->mock(\STS\Contracts\Logic\Subscription::class);
     }
 
     public function tearDown()

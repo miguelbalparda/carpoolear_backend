@@ -16,7 +16,7 @@ class CarApiTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->carsLogic = $this->mock('STS\Contracts\Logic\Car');
+        $this->carsLogic = $this->mock(\STS\Contracts\Logic\Car::class);
     }
 
     public function tearDown()

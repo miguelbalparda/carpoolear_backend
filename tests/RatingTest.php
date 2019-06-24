@@ -19,8 +19,8 @@ class RatingTest extends BrowserKitTestCase
     {
         parent::setUp();
         start_log_query();
-        $this->ratingManager = App::make('\STS\Contracts\Logic\IRateLogic');
-        $this->ratingRepository = App::make('\STS\Contracts\Repository\IRatingRepository');
+        $this->ratingManager = App::make(\STS\Contracts\Logic\IRateLogic::class);
+        $this->ratingRepository = App::make(\STS\Contracts\Repository\IRatingRepository::class);
     }
 
     public function testCreate()

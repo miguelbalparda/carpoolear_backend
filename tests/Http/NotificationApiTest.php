@@ -16,7 +16,7 @@ class NotificationApiTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->logic = $this->mock('STS\Contracts\Logic\INotification');
+        $this->logic = $this->mock(\STS\Contracts\Logic\INotification::class);
     }
 
     public function tearDown()

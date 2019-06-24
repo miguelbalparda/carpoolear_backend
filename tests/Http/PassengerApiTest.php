@@ -18,7 +18,7 @@ class PassengerApiTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->logic = $this->mock('STS\Contracts\Logic\IPassengersLogic');
+        $this->logic = $this->mock(\STS\Contracts\Logic\IPassengersLogic::class);
     }
 
     public function tearDown()

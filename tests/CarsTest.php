@@ -12,7 +12,7 @@ class CarsTest extends BrowserKitTestCase
     {
         parent::setUp();
         start_log_query();
-        $this->carManager = \App::make('\STS\Contracts\Logic\Car');
+        $this->carManager = \App::make(\STS\Contracts\Logic\Car::class);
     }
 
     public function testCreateCar()

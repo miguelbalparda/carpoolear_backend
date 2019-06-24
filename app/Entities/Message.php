@@ -25,19 +25,19 @@ class Message extends Model
 
     public function conversation()
     {
-        return $this->belongsTo('STS\Entities\Conversation', 'conversation_id');
+        return $this->belongsTo(\STS\Entities\Conversation::class, 'conversation_id');
     }
 
     protected $hidden = [];
 
     public function from()
     {
-        return $this->belongsTo('STS\User', 'user_id');
+        return $this->belongsTo(\STS\User::class, 'user_id');
     }
 
     public function users()
     {
-        return $this->belongsToMany('STS\User', 'user_message_read', 'message_id', 'user_id')->withPivot('read');
+        return $this->belongsToMany(\STS\User::class, 'user_message_read', 'message_id', 'user_id')->withPivot('read');
     }
 
     public function read(User $user)

@@ -18,7 +18,7 @@ class RatingApiTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->logic = $this->mock('STS\Contracts\Logic\IRateLogic');
+        $this->logic = $this->mock(\STS\Contracts\Logic\IRateLogic::class);
     }
 
     public function tearDown()

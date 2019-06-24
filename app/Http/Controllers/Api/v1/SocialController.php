@@ -34,7 +34,7 @@ class SocialController extends Controller
                     ->needs('$token')
                     ->give($accessToken);
 
-        \App::bind('\STS\Contracts\SocialProvider', $providerClass);
+        \App::bind(\STS\Contracts\SocialProvider::class, $providerClass);
     }
 
     public function login(Request $request, $provider)
@@ -43,7 +43,7 @@ class SocialController extends Controller
         $this->installProvider($provider, $accessToken);
 
         try {
-            $socialServices = \App::make('\STS\Contracts\Logic\Social');
+            $socialServices = \App::make(\STS\Contracts\Logic\Social::class);
             $user = $socialServices->loginOrCreate();
             if (! $user) {
                 throw new StoreResourceFailedException('Could not create new user.', $socialServices->getErrors());
@@ -75,7 +75,7 @@ class SocialController extends Controller
         $this->installProvider($provider, $accessToken);
 
         try {
-            $socialServices = \App::make('\STS\Contracts\Logic\Social');
+            $socialServices = \App::make(\STS\Contracts\Logic\Social::class);
             $ret = $socialServices->updateProfile($user);
             if (! $ret) {
                 throw new StoreResourceFailedException('Could not update user.', $socialServices->gerErrors());
@@ -94,7 +94,7 @@ class SocialController extends Controller
         $this->installProvider($provider, $accessToken);
 
         try {
-            $socialServices = \App::make('\STS\Contracts\Logic\Social');
+            $socialServices = \App::make(\STS\Contracts\Logic\Social::class);
             $ret = $socialServices->makeFriends($user);
             if (! $ret) {
                 throw new StoreResourceFailedException('Could not refresh for friends.', $socialServices->gerErrors());

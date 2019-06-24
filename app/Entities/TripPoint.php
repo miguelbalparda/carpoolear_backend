@@ -36,6 +36,6 @@ class TripPoint extends Model
 
     public function trip()
     {
-        return $this->belongsTo('STS\Entities\Trip', 'trip_id');
+        return $this->belongsTo(\STS\Entities\Trip::class, 'trip_id');
     }
 }

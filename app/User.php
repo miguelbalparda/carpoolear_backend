@@ -81,12 +81,12 @@ class User extends Authenticatable
 
     public function accounts()
     {
-        return $this->hasMany('STS\Entities\SocialAccount', 'user_id');
+        return $this->hasMany(\STS\Entities\SocialAccount::class, 'user_id');
     }
 
     public function devices()
     {
-        return $this->hasMany('STS\Entities\Device', 'user_id');
+        return $this->hasMany(\STS\Entities\Device::class, 'user_id');
     }
 
     public function age()
@@ -98,22 +98,22 @@ class User extends Authenticatable
 
     public function passenger()
     {
-        return $this->hasMany('STS\Entities\Passenger', 'user_id');
+        return $this->hasMany(\STS\Entities\Passenger::class, 'user_id');
     }
 
     public function cars()
     {
-        return $this->hasMany('STS\Entities\Car', 'user_id');
+        return $this->hasMany(\STS\Entities\Car::class, 'user_id');
     }
 
     public function subscriptions()
     {
-        return $this->hasMany('STS\Entities\Subscription', 'user_id');
+        return $this->hasMany(\STS\Entities\Subscription::class, 'user_id');
     }
 
     public function allFriends($state = null)
     {
-        $friends = $this->belongsToMany('STS\User', 'friends', 'uid1', 'uid2')
+        $friends = $this->belongsToMany(\STS\User::class, 'friends', 'uid1', 'uid2')
                     ->withTimestamps();
         if ($state) {
             $friends->wherePivot('state', $state);
@@ -124,7 +124,7 @@ class User extends Authenticatable
 
     public function friends($state = null)
     {
-        return $this->belongsToMany('STS\User', 'friends', 'uid1', 'uid2')
+        return $this->belongsToMany(\STS\User::class, 'friends', 'uid1', 'uid2')
                     ->withTimestamps()
                     ->wherePivot('state', self::FRIEND_ACCEPTED);
     }
@@ -145,7 +145,7 @@ class User extends Authenticatable
 
     public function donations()
     {
-        $donations = $this->hasMany("STS\Entities\Donation", 'user_id');
+        $donations = $this->hasMany(\STS\Entities\Donation::class, 'user_id');
         $donations->where('month', '<=', date('Y-m-t 23:59:59'));
         $donations->where('month', '>=', date('Y-m-01 00:00:00'));
 
@@ -159,7 +159,7 @@ class User extends Authenticatable
 
     public function trips($state = null)
     {
-        $trips = $this->hasMany("STS\Entities\Trip", 'user_id');
+        $trips = $this->hasMany(\STS\Entities\Trip::class, 'user_id');
         if ($state === Trip::FINALIZADO) {
             $trips->where('trip_date', '<', Carbon::Now()->toDateTimeString());
         } elseif ($state === Trip::ACTIVO) {
@@ -171,7 +171,7 @@ class User extends Authenticatable
 
     public function conversations()
     {
-        return $this->belongsToMany('STS\Entities\Conversation', 'conversations_users', 'user_id', 'conversation_id')->withPivot('read');
+        return $this->belongsToMany(\STS\Entities\Conversation::class, 'conversations_users', 'user_id', 'conversation_id')->withPivot('read');
     }
 
     public function tripsAsPassenger($state = null)
@@ -192,7 +192,7 @@ class User extends Authenticatable
 
     public function ratingGiven()
     {
-        return $this->hasMany('STS\Entities\Rating', 'user_id_from')->where('available', 1);
+        return $this->hasMany(\STS\Entities\Rating::class, 'user_id_from')->where('available', 1);
         /* ->where('voted', 1)
         ->where('created_at', '<=', Carbon::Now()
         ->subDays(RatingModel::RATING_INTERVAL));*/
@@ -200,7 +200,7 @@ class User extends Authenticatable
 
     public function ratingReceived()
     {
-        return $this->hasMany('STS\Entities\Rating', 'user_id_to')->where('available', 1);
+        return $this->hasMany(\STS\Entities\Rating::class, 'user_id_to')->where('available', 1);
         /* ->where('voted', 1)
         ->where('created_at', '<=', Carbon::Now()
         ->subDays(RatingModel::RATING_INTERVAL)); */

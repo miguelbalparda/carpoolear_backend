@@ -16,12 +16,12 @@ class Car extends Model
 
     public function user()
     {
-        return $this->belongsTo('STS\User', 'user_id');
+        return $this->belongsTo(\STS\User::class, 'user_id');
     }
 
     public function trips()
     {
-        return $this->hasMany('STS\Entities\Trip', 'car_id');
+        return $this->hasMany(\STS\Entities\Trip::class, 'car_id');
     }
 
     public function getTripsCountAttribute()

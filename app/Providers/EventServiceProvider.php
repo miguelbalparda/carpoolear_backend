@@ -14,73 +14,73 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'STS\Events\User\Create'    => [
-            'STS\Listeners\User\CreateHandler',
+        \STS\Events\User\Create::class    => [
+            \STS\Listeners\User\CreateHandler::class,
         ],
-        'STS\Events\User\Update'    => [
-            'STS\Listeners\User\UpdateHandler',
+        \STS\Events\User\Update::class    => [
+            \STS\Listeners\User\UpdateHandler::class,
         ],
-        'STS\Events\User\Reset'     => [
-            'STS\Listeners\Notification\ResetPasswordHandler',
+        \STS\Events\User\Reset::class     => [
+            \STS\Listeners\Notification\ResetPasswordHandler::class,
         ],
-        'STS\Events\Friend\Request' => [
-            'STS\Listeners\Notification\FriendRequest',
+        \STS\Events\Friend\Request::class => [
+            \STS\Listeners\Notification\FriendRequest::class,
         ],
-        'STS\Events\Friend\Accept' => [
-            'STS\Listeners\Notification\FriendAccept',
+        \STS\Events\Friend\Accept::class => [
+            \STS\Listeners\Notification\FriendAccept::class,
         ],
-        'STS\Events\Friend\Reject' => [
-            'STS\Listeners\Notification\FriendReject',
+        \STS\Events\Friend\Reject::class => [
+            \STS\Listeners\Notification\FriendReject::class,
         ],
-        'STS\Events\Friend\Cancel' => [
-            'STS\Listeners\Notification\FriendCancel',
+        \STS\Events\Friend\Cancel::class => [
+            \STS\Listeners\Notification\FriendCancel::class,
         ],
-        'STS\Events\Trip\Create' => [
-            'STS\Listeners\DownloadStaticImage',
-            'STS\Listeners\Subscriptions\OnNewTrip',
+        \STS\Events\Trip\Create::class => [
+            \STS\Listeners\DownloadStaticImage::class,
+            \STS\Listeners\Subscriptions\OnNewTrip::class,
             // 'STS\Listeners\Conversation\createConversation',
         ],
-        'STS\Events\Trip\Update' => [
-            'STS\Listeners\DownloadStaticImage',
-            'STS\Listeners\Notification\UpdateTrip',
-            'STS\Listeners\Subscriptions\OnNewTrip',
+        \STS\Events\Trip\Update::class => [
+            \STS\Listeners\DownloadStaticImage::class,
+            \STS\Listeners\Notification\UpdateTrip::class,
+            \STS\Listeners\Subscriptions\OnNewTrip::class,
         ],
-        'STS\Events\Trip\Delete' => [
+        \STS\Events\Trip\Delete::class => [
             CreateRatingDeleteTrip::class,
         ],
-        'STS\Events\Trip\Alert\HourLeft' => [
-            'STS\Listeners\Notification\TripHourLeft',
+        \STS\Events\Trip\Alert\HourLeft::class => [
+            \STS\Listeners\Notification\TripHourLeft::class,
         ],
-        'STS\Events\Trip\Alert\RequestRemainder' => [
-            'STS\Listeners\Notification\TripRequestRemainder',
+        \STS\Events\Trip\Alert\RequestRemainder::class => [
+            \STS\Listeners\Notification\TripRequestRemainder::class,
         ],
-        'STS\Events\Trip\Alert\RequestNotAnswer' => [
-            'STS\Listeners\Notification\TripRequestNotAnswer',
+        \STS\Events\Trip\Alert\RequestNotAnswer::class => [
+            \STS\Listeners\Notification\TripRequestNotAnswer::class,
         ],
 
-        'STS\Events\Notification\NotificationSending' => [
-            'STS\Listeners\Notification\CanSendEmail',
-            'STS\Listeners\Notification\PreventMessageEmail',
+        \STS\Events\Notification\NotificationSending::class => [
+            \STS\Listeners\Notification\CanSendEmail::class,
+            \STS\Listeners\Notification\PreventMessageEmail::class,
         ],
-        'STS\Events\Passenger\Request' => [
-            'STS\Listeners\Notification\PassengerRequest',
+        \STS\Events\Passenger\Request::class => [
+            \STS\Listeners\Notification\PassengerRequest::class,
         ],
-        'STS\Events\Passenger\Cancel' => [
-            'STS\Listeners\Notification\PassengerCancel',
+        \STS\Events\Passenger\Cancel::class => [
+            \STS\Listeners\Notification\PassengerCancel::class,
             // 'STS\Listeners\Conversation\removeUserConversation',
         ],
-        'STS\Events\Passenger\Accept' => [
-            'STS\Listeners\Notification\PassengerAccept',
+        \STS\Events\Passenger\Accept::class => [
+            \STS\Listeners\Notification\PassengerAccept::class,
             // 'STS\Listeners\Conversation\addUserConversation',
         ],
-        'STS\Events\Passenger\Reject' => [
-            'STS\Listeners\Notification\PassengerReject',
+        \STS\Events\Passenger\Reject::class => [
+            \STS\Listeners\Notification\PassengerReject::class,
         ],
-        'STS\Events\Rating\PendingRate' => [
-            'STS\Listeners\Notification\PendingRate',
+        \STS\Events\Rating\PendingRate::class => [
+            \STS\Listeners\Notification\PendingRate::class,
         ],
-        'STS\Events\MessageSend' => [
-            'STS\Listeners\Notification\MessageSend',
+        \STS\Events\MessageSend::class => [
+            \STS\Listeners\Notification\MessageSend::class,
         ],
     ];
 

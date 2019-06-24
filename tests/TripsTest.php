@@ -21,7 +21,7 @@ class TripsTest extends BrowserKitTestCase
         $this->expectsEvents(STS\Events\Trip\Create::class);
         $user = factory(STS\User::class)->create();
         $car = factory(STS\Entities\Car::class)->create(['user_id' => $user->id]);
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
 
         $data = [
             'is_passenger'          => 0,
@@ -58,7 +58,7 @@ class TripsTest extends BrowserKitTestCase
     public function testUpdateTrip()
     {
         $this->expectsEvents(STS\Events\Trip\Update::class);
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
         $trip = factory(STS\Entities\Trip::class)->create();
         $from = $trip->from_town;
 
@@ -74,7 +74,7 @@ class TripsTest extends BrowserKitTestCase
     public function testDeleteTrip()
     {
         $this->expectsEvents(STS\Events\Trip\Delete::class);
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
         $trip = factory(STS\Entities\Trip::class)->create();
 
         $from = $trip->from_town;
@@ -84,7 +84,7 @@ class TripsTest extends BrowserKitTestCase
 
     public function testShowTrip()
     {
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
         $trip = factory(STS\Entities\Trip::class)->create();
 
         $result = $tripManager->show($trip->user, $trip->id);
@@ -93,7 +93,7 @@ class TripsTest extends BrowserKitTestCase
 
     public function testCanSeeTrip()
     {
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
         $trip = factory(STS\Entities\Trip::class)->create();
 
         $other = factory(STS\User::class)->create();
@@ -104,10 +104,10 @@ class TripsTest extends BrowserKitTestCase
 
     public function testCanSeeTripFriend()
     {
-        $this->userLogic = $this->mock('STS\Contracts\Logic\Friends');
+        $this->userLogic = $this->mock(\STS\Contracts\Logic\Friends::class);
         $this->userLogic->shouldReceive('areFriend')->once()->andReturn(true);
 
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
         $trip = factory(STS\Entities\Trip::class)->create(['friendship_type_id' => 0]);
 
         $other = factory(STS\User::class)->create();
@@ -128,7 +128,7 @@ class TripsTest extends BrowserKitTestCase
 
     public function testSimpleSearch()
     {
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
 
         $this->seed('TripsTestSeeder');
         $other = factory(STS\User::class)->create();
@@ -141,7 +141,7 @@ class TripsTest extends BrowserKitTestCase
 
     public function testOriginSearch()
     {
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
 
         $this->seed('TripsTestSeeder');
         $other = factory(STS\User::class)->create();
@@ -157,7 +157,7 @@ class TripsTest extends BrowserKitTestCase
 
     public function testDestinationSearch()
     {
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
 
         $this->seed('TripsTestSeeder');
         $other = factory(STS\User::class)->create();
@@ -184,7 +184,7 @@ class TripsTest extends BrowserKitTestCase
 
     public function testMyTripsAsDriver()
     {
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
         $user = factory(STS\User::class)->create();
         $trip = factory(STS\Entities\Trip::class)->create(['user_id' => $user->id]);
         $trip = factory(STS\Entities\Trip::class)->create(['user_id' => $user->id]);
@@ -196,7 +196,7 @@ class TripsTest extends BrowserKitTestCase
 
     public function testMyTripsAsPassenger()
     {
-        $tripManager = \App::make('\STS\Contracts\Logic\Trip');
+        $tripManager = \App::make(\STS\Contracts\Logic\Trip::class);
         $user = factory(STS\User::class)->create();
         $trip = factory(STS\Entities\Trip::class)->create();
         factory(Passenger::class, 'aceptado')->create(['user_id' => $user->id, 'trip_id' => $trip->id]);

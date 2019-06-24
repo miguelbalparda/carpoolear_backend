@@ -16,7 +16,7 @@ class FriendApiTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->friendsLogic = $this->mock('STS\Contracts\Logic\Friends');
+        $this->friendsLogic = $this->mock(\STS\Contracts\Logic\Friends::class);
     }
 
     public function tearDown()

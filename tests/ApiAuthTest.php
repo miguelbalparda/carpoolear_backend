@@ -71,7 +71,7 @@ class ApiAuthTest extends BrowserKitTestCase
         $json = $this->parseJson($response);
         $token = $json->token;
 
-        $deviceLogic = $this->mock('STS\Contracts\Logic\Devices');
+        $deviceLogic = $this->mock(\STS\Contracts\Logic\Devices::class);
         //$deviceLogic->shouldReceive('updateBySession')->once()->andReturn(true);
 
         JWTAuth::shouldReceive('getToken')->once()->andReturn(new Token('a.b.c'));
@@ -122,7 +122,7 @@ class ApiAuthTest extends BrowserKitTestCase
     public function testActive()
     {
         $u1 = factory(STS\User::class)->create();
-        $this->userLogic = $this->mock('STS\Contracts\Logic\User');
+        $this->userLogic = $this->mock(\STS\Contracts\Logic\User::class);
         $this->userLogic->shouldReceive('activeAccount')->once()->andReturn($u1);
 
         $response = $this->call('POST', 'api/activate/1234567890');
@@ -137,7 +137,7 @@ class ApiAuthTest extends BrowserKitTestCase
     public function testResetPassword()
     {
         $u1 = factory(STS\User::class)->create();
-        $this->userLogic = $this->mock('STS\Contracts\Logic\User');
+        $this->userLogic = $this->mock(\STS\Contracts\Logic\User::class);
         $this->userLogic->shouldReceive('resetPassword')->once()->andReturn('asdqweasdqwe');
 
         $response = $this->call('POST', 'api/reset-password', ['email' => $u1->email]);
@@ -150,7 +150,7 @@ class ApiAuthTest extends BrowserKitTestCase
     public function testChagePassword()
     {
         $u1 = factory(STS\User::class)->create();
-        $this->userLogic = $this->mock('STS\Contracts\Logic\User');
+        $this->userLogic = $this->mock(\STS\Contracts\Logic\User::class);
         $this->userLogic->shouldReceive('changePassword')->once()->andReturn(true);
 
         $response = $this->call('POST', 'api/change-password/1234567890');
@@ -167,7 +167,7 @@ class ApiAuthTest extends BrowserKitTestCase
         $u3 = factory(STS\User::class)->create();
         $this->actingAsApiUser($u1);
 
-        $this->userLogic = $this->mock('STS\Contracts\Logic\User');
+        $this->userLogic = $this->mock(\STS\Contracts\Logic\User::class);
         $this->userLogic->shouldReceive('index')->once()->andReturn(new Collection([$u2, $u3]));
 
         $response = $this->call('GET', 'api/users/list');

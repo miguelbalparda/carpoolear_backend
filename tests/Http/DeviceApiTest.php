@@ -17,7 +17,7 @@ class DeviceApiTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->deviceLogic = $this->mock('STS\Contracts\Logic\Devices');
+        $this->deviceLogic = $this->mock(\STS\Contracts\Logic\Devices::class);
     }
 
     public function tearDown()

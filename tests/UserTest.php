@@ -15,7 +15,7 @@ class UserTest extends BrowserKitTestCase
     public function testCreateUser()
     {
         $this->expectsEvents(STS\Events\User\Create::class);
-        $userManager = \App::make('\STS\Contracts\Logic\User');
+        $userManager = \App::make(\STS\Contracts\Logic\User::class);
         $data = [
             'name'                  => 'Mariano',
             'email'                 => 'marianoabotta@gmail.com',
@@ -29,7 +29,7 @@ class UserTest extends BrowserKitTestCase
 
     public function testCreateUserFail()
     {
-        $userManager = \App::make('\STS\Contracts\Logic\User');
+        $userManager = \App::make(\STS\Contracts\Logic\User::class);
         $data = [
             'name'     => 'Mariano',
             'email'    => 'marianoabotta@gmail.com',
@@ -43,7 +43,7 @@ class UserTest extends BrowserKitTestCase
     public function testCreateUserRepited()
     {
         $this->expectsEvents(STS\Events\User\Create::class);
-        $userManager = \App::make('\STS\Contracts\Logic\User');
+        $userManager = \App::make(\STS\Contracts\Logic\User::class);
         $data = [
             'name'                  => 'Mariano',
             'email'                 => 'mariano@g1.com',
@@ -60,7 +60,7 @@ class UserTest extends BrowserKitTestCase
 
     public function testUpdateUser()
     {
-        $userManager = \App::make('\STS\Contracts\Logic\User');
+        $userManager = \App::make(\STS\Contracts\Logic\User::class);
         $data = [
             'name'                  => 'Mariano',
             'email'                 => 'mariano@g1.com',
@@ -83,7 +83,7 @@ class UserTest extends BrowserKitTestCase
     public function testActiveUser()
     {
         $token = str_random(40);
-        $userManager = \App::make('\STS\Contracts\Logic\User');
+        $userManager = \App::make(\STS\Contracts\Logic\User::class);
         $u1 = factory(STS\User::class)->create([
             'activation_token' => $token,
             'active'           => false,
@@ -99,7 +99,7 @@ class UserTest extends BrowserKitTestCase
     {
         //$this->expectsEvents(STS\Events\User\Reset::class);
 
-        $userManager = \App::make('\STS\Contracts\Logic\User');
+        $userManager = \App::make(\STS\Contracts\Logic\User::class);
         $u1 = factory(STS\User::class)->create();
 
         $token = $userManager->resetPassword($u1->email);
@@ -127,7 +127,7 @@ class UserTest extends BrowserKitTestCase
 
     public function testIndex()
     {
-        $userManager = \App::make('\STS\Contracts\Logic\User');
+        $userManager = \App::make(\STS\Contracts\Logic\User::class);
         $u1 = factory(STS\User::class)->create();
         $u2 = factory(STS\User::class)->create();
         $u3 = factory(STS\User::class)->create();

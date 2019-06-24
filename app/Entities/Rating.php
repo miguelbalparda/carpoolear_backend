@@ -41,16 +41,16 @@ class Rating extends Model
 
     public function from()
     {
-        return $this->belongsTo('STS\User', 'user_id_from');
+        return $this->belongsTo(\STS\User::class, 'user_id_from');
     }
 
     public function to()
     {
-        return $this->belongsTo('STS\User', 'user_id_to');
+        return $this->belongsTo(\STS\User::class, 'user_id_to');
     }
 
     public function trip()
     {
-        return $this->belongsTo('STS\Entities\Trip', 'trip_id')->withoutGlobalScope(SoftDeletingScope::class);
+        return $this->belongsTo(\STS\Entities\Trip::class, 'trip_id')->withoutGlobalScope(SoftDeletingScope::class);
     }
 }

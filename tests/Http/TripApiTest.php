@@ -17,7 +17,7 @@ class TripApiTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->tripsLogic = $this->mock('STS\Contracts\Logic\Trip');
+        $this->tripsLogic = $this->mock(\STS\Contracts\Logic\Trip::class);
     }
 
     public function tearDown()

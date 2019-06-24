@@ -65,7 +65,7 @@ class NotificationTest extends BrowserKitTestCase
 
         $dummy->notify($user);
 
-        $manager = \App::make('\STS\Contracts\Logic\INotification');
+        $manager = \App::make(\STS\Contracts\Logic\INotification::class);
 
         $datos = $manager->getNotifications($user, []);
         $this->assertEquals(count($datos), 1);

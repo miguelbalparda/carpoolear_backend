@@ -15,8 +15,8 @@ class PassengersTest extends BrowserKitTestCase
     {
         parent::setUp();
         start_log_query();
-        $this->passengerManager = \App::make('\STS\Contracts\Logic\IPassengersLogic');
-        $this->passengerRepository = \App::make('\STS\Contracts\Repository\IPassengersRepository');
+        $this->passengerManager = \App::make(\STS\Contracts\Logic\IPassengersLogic::class);
+        $this->passengerRepository = \App::make(\STS\Contracts\Repository\IPassengersRepository::class);
     }
 
     public function testNewRequest()

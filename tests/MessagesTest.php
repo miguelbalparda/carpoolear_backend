@@ -21,9 +21,9 @@ class MessagesTest extends BrowserKitTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->conversationManager = $this->app->make('\STS\Contracts\Logic\Conversation');
-        $this->messageRepository = $this->app->make('\STS\Contracts\Repository\Messages');
-        $this->conversationRepository = $this->app->make('\STS\Contracts\Repository\Conversations');
+        $this->conversationManager = $this->app->make(\STS\Contracts\Logic\Conversation::class);
+        $this->messageRepository = $this->app->make(\STS\Contracts\Repository\Messages::class);
+        $this->conversationRepository = $this->app->make(\STS\Contracts\Repository\Conversations::class);
     }
 
     public function test_findOrCreatePrivateConversation()
