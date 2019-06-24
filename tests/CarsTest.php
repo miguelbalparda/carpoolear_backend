@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class CarsTest extends TestCase
+class CarsTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -12,7 +12,7 @@ class CarsTest extends TestCase
     {
         parent::setUp();
         start_log_query();
-        $this->carManager = \App::make('\STS\Contracts\Logic\Car');
+        $this->carManager = \App::make(\STS\Contracts\Logic\Car::class);
     }
 
     public function testCreateCar()

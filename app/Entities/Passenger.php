@@ -40,21 +40,21 @@ class Passenger extends Model
 
     public function user()
     {
-        return $this->belongsTo('STS\User', 'user_id');
+        return $this->belongsTo(\STS\User::class, 'user_id');
     }
 
     public function trip()
     {
-        return $this->belongsTo('STS\Entities\Trip', 'trip_id');
+        return $this->belongsTo(\STS\Entities\Trip::class, 'trip_id');
     }
 
     public function ratingGiven()
     {
-        return $this->hasMany('STS\Entities\Rating', 'user_id_from')->where('trip_id', $this->trip_id);
+        return $this->hasMany(\STS\Entities\Rating::class, 'user_id_from')->where('trip_id', $this->trip_id);
     }
 
     public function ratingReceived()
     {
-        return $this->hasMany('STS\Entities\Rating', 'user_id_to')->where('trip_id', $this->trip_id);
+        return $this->hasMany(\STS\Entities\Rating::class, 'user_id_to')->where('trip_id', $this->trip_id);
     }
 }

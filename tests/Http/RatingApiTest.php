@@ -5,7 +5,7 @@ use STS\Entities\Trip;
 use STS\Entities\Rating;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class RatingApiTest extends TestCase
+class RatingApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -18,7 +18,7 @@ class RatingApiTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->logic = $this->mock('STS\Contracts\Logic\IRateLogic');
+        $this->logic = $this->mock(\STS\Contracts\Logic\IRateLogic::class);
     }
 
     public function tearDown()

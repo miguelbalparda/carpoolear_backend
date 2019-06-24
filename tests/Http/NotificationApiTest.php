@@ -3,7 +3,7 @@
 use Mockery as m;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class NotificationApiTest extends TestCase
+class NotificationApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -16,7 +16,7 @@ class NotificationApiTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->logic = $this->mock('STS\Contracts\Logic\INotification');
+        $this->logic = $this->mock(\STS\Contracts\Logic\INotification::class);
     }
 
     public function tearDown()

@@ -4,7 +4,7 @@ use Mockery as m;
 use Tymon\JWTAuth\Token;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class DeviceApiTest extends TestCase
+class DeviceApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -17,7 +17,7 @@ class DeviceApiTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->deviceLogic = $this->mock('STS\Contracts\Logic\Devices');
+        $this->deviceLogic = $this->mock(\STS\Contracts\Logic\Devices::class);
     }
 
     public function tearDown()

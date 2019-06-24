@@ -2,13 +2,13 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class FriendsTest extends TestCase
+class FriendsTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
     public function testRequestAccept()
     {
-        $friends = \App::make('\STS\Contracts\Logic\Friends');
+        $friends = \App::make(\STS\Contracts\Logic\Friends::class);
 
         $users = factory(STS\User::class, 3)->create();
 
@@ -24,7 +24,7 @@ class FriendsTest extends TestCase
 
     public function testRequestReject()
     {
-        $friends = \App::make('\STS\Contracts\Logic\Friends');
+        $friends = \App::make(\STS\Contracts\Logic\Friends::class);
 
         $users = factory(STS\User::class, 3)->create();
 
@@ -40,7 +40,7 @@ class FriendsTest extends TestCase
 
     public function testDeleteFriends()
     {
-        $friends = \App::make('\STS\Contracts\Logic\Friends');
+        $friends = \App::make(\STS\Contracts\Logic\Friends::class);
 
         $users = factory(STS\User::class, 3)->create();
 
@@ -58,7 +58,7 @@ class FriendsTest extends TestCase
 
     public function testGetFriends()
     {
-        $friends = \App::make('\STS\Contracts\Logic\Friends');
+        $friends = \App::make(\STS\Contracts\Logic\Friends::class);
 
         $users = factory(STS\User::class, 3)->create();
 
@@ -71,7 +71,7 @@ class FriendsTest extends TestCase
 
     public function testUserRelationship()
     {
-        $friends = \App::make('\STS\Contracts\Logic\Friends');
+        $friends = \App::make(\STS\Contracts\Logic\Friends::class);
 
         $users = factory(STS\User::class, 3)->create();
 
@@ -87,7 +87,7 @@ class FriendsTest extends TestCase
 
     public function testFriendsOfFriends()
     {
-        $friends = \App::make('\STS\Contracts\Logic\Friends');
+        $friends = \App::make(\STS\Contracts\Logic\Friends::class);
 
         $users = factory(STS\User::class, 3)->create();
 

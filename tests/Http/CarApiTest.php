@@ -3,7 +3,7 @@
 use Mockery as m;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class CarApiTest extends TestCase
+class CarApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -16,7 +16,7 @@ class CarApiTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->carsLogic = $this->mock('STS\Contracts\Logic\Car');
+        $this->carsLogic = $this->mock(\STS\Contracts\Logic\Car::class);
     }
 
     public function tearDown()

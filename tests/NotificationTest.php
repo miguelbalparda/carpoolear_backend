@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use STS\Services\Notifications\Models\ValueNotification;
 use STS\Services\Notifications\Models\DatabaseNotification;
 
-class NotificationTest extends TestCase
+class NotificationTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -65,7 +65,7 @@ class NotificationTest extends TestCase
 
         $dummy->notify($user);
 
-        $manager = \App::make('\STS\Contracts\Logic\INotification');
+        $manager = \App::make(\STS\Contracts\Logic\INotification::class);
 
         $datos = $manager->getNotifications($user, []);
         $this->assertEquals(count($datos), 1);

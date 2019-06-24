@@ -25,7 +25,7 @@ class Device extends Model
 
     public function user()
     {
-        return $this->belongsTo('STS\User', 'user_id');
+        return $this->belongsTo(\STS\User::class, 'user_id');
     }
 
     public function isAndroid()

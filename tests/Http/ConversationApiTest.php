@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ConversationApiTest extends TestCase
+class ConversationApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -15,9 +15,9 @@ class ConversationApiTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->conversationManager = $this->app->make('\STS\Contracts\Logic\Conversation');
-        $this->messageRepository = $this->app->make('\STS\Contracts\Repository\Messages');
-        $this->conversationRepository = $this->app->make('\STS\Contracts\Repository\Conversations');
+        $this->conversationManager = $this->app->make(\STS\Contracts\Logic\Conversation::class);
+        $this->messageRepository = $this->app->make(\STS\Contracts\Repository\Messages::class);
+        $this->conversationRepository = $this->app->make(\STS\Contracts\Repository\Conversations::class);
     }
 
     protected function parseJson($response)
@@ -27,7 +27,7 @@ class ConversationApiTest extends TestCase
 
     public function test_api_conversations_get()
     {
-        $friends = \App::make('\STS\Contracts\Logic\Friends');
+        $friends = \App::make(\STS\Contracts\Logic\Friends::class);
 
         $user1 = factory(\STS\User::class)->create();
         $user2 = factory(\STS\User::class)->create(['is_admin' => true]);
@@ -154,7 +154,7 @@ class ConversationApiTest extends TestCase
 
     public function test_api_conversations_user_list()
     {
-        $friends = \App::make('\STS\Contracts\Logic\Friends');
+        $friends = \App::make(\STS\Contracts\Logic\Friends::class);
 
         $user1 = factory(\STS\User::class)->create();
         $user2 = factory(\STS\User::class)->create(['is_admin' => true]);

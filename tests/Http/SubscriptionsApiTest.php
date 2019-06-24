@@ -3,7 +3,7 @@
 use Mockery as m;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SubscriptionApiTest extends TestCase
+class SubscriptionApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -16,7 +16,7 @@ class SubscriptionApiTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->subscriptionsLogic = $this->mock('STS\Contracts\Logic\Subscription');
+        $this->subscriptionsLogic = $this->mock(\STS\Contracts\Logic\Subscription::class);
     }
 
     public function tearDown()

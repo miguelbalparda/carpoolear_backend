@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class QueriesTest extends TestCase
+class QueriesTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

@@ -72,22 +72,22 @@ class Trip extends Model
 
     public function parentTrip()
     {
-        return $this->hasOne('STS\Entities\Trip', 'parent_trip_id');
+        return $this->hasOne(\STS\Entities\Trip::class, 'parent_trip_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('STS\User', 'user_id');
+        return $this->belongsTo(\STS\User::class, 'user_id');
     }
 
     public function car()
     {
-        return $this->belongsTo('STS\Entities\Car', 'car_id');
+        return $this->belongsTo(\STS\Entities\Car::class, 'car_id');
     }
 
     public function passenger()
     {
-        return $this->hasMany('STS\Entities\Passenger', 'trip_id')->with('user');
+        return $this->hasMany(\STS\Entities\Passenger::class, 'trip_id')->with('user');
     }
 
     public function passengerAccepted()
@@ -102,12 +102,12 @@ class Trip extends Model
 
     public function days()
     {
-        return $this->hasMany('STS\Entities\TripDay', 'trip_id');
+        return $this->hasMany(\STS\Entities\TripDay::class, 'trip_id');
     }
 
     public function points()
     {
-        return $this->hasMany('STS\Entities\TripPoint', 'trip_id');
+        return $this->hasMany(\STS\Entities\TripPoint::class, 'trip_id');
     }
 
     public function califications()
@@ -117,17 +117,17 @@ class Trip extends Model
 
     public function outbound()
     {
-        return $this->hasOne('STS\Entities\Trip', 'return_trip_id');
+        return $this->hasOne(\STS\Entities\Trip::class, 'return_trip_id');
     }
 
     public function inbound()
     {
-        return $this->belongsTo('STS\Entities\Trip', 'return_trip_id');
+        return $this->belongsTo(\STS\Entities\Trip::class, 'return_trip_id');
     }
 
     public function conversation()
     {
-        return $this->hasOne('STS\Entities\Conversation', 'trip_id');
+        return $this->hasOne(\STS\Entities\Conversation::class, 'trip_id');
     }
 
     public function getPassengerCountAttribute()

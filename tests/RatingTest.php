@@ -7,7 +7,7 @@ use STS\Entities\Passenger;
 use STS\Transformers\RatingTransformer;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class RatingTest extends TestCase
+class RatingTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -19,8 +19,8 @@ class RatingTest extends TestCase
     {
         parent::setUp();
         start_log_query();
-        $this->ratingManager = App::make('\STS\Contracts\Logic\IRateLogic');
-        $this->ratingRepository = App::make('\STS\Contracts\Repository\IRatingRepository');
+        $this->ratingManager = App::make(\STS\Contracts\Logic\IRateLogic::class);
+        $this->ratingRepository = App::make(\STS\Contracts\Repository\IRatingRepository::class);
     }
 
     public function testCreate()

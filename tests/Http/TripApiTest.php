@@ -4,7 +4,7 @@ use Mockery as m;
 use STS\Entities\Trip;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class TripApiTest extends TestCase
+class TripApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -17,7 +17,7 @@ class TripApiTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->tripsLogic = $this->mock('STS\Contracts\Logic\Trip');
+        $this->tripsLogic = $this->mock(\STS\Contracts\Logic\Trip::class);
     }
 
     public function tearDown()

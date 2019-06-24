@@ -6,7 +6,7 @@ use STS\Entities\Trip;
 use STS\Entities\Passenger;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class RequestNotAnswerTest extends TestCase
+class RequestNotAnswerTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 

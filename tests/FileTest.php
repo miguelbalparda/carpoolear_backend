@@ -1,6 +1,6 @@
 <?php
 
-class FileTest extends TestCase
+class FileTest extends BrowserKitTestCase
 {
     protected $userManager;
 
@@ -10,7 +10,7 @@ class FileTest extends TestCase
 
     public function testCreateFile()
     {
-        $filesSystem = \App::make('\STS\Contracts\Repository\Files');
+        $filesSystem = \App::make(\STS\Contracts\Repository\Files::class);
 
         $path = base_path('tests/test_file.txt', 'image');
         File::put($path, 'HOLA');

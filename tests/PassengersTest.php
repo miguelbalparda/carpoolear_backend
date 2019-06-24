@@ -5,7 +5,7 @@ use STS\Entities\Trip;
 use STS\Entities\Passenger;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class PassengersTest extends TestCase
+class PassengersTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -15,8 +15,8 @@ class PassengersTest extends TestCase
     {
         parent::setUp();
         start_log_query();
-        $this->passengerManager = \App::make('\STS\Contracts\Logic\IPassengersLogic');
-        $this->passengerRepository = \App::make('\STS\Contracts\Repository\IPassengersRepository');
+        $this->passengerManager = \App::make(\STS\Contracts\Logic\IPassengersLogic::class);
+        $this->passengerRepository = \App::make(\STS\Contracts\Repository\IPassengersRepository::class);
     }
 
     public function testNewRequest()

@@ -3,7 +3,7 @@
 use Mockery as m;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class FriendApiTest extends TestCase
+class FriendApiTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
@@ -16,7 +16,7 @@ class FriendApiTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->friendsLogic = $this->mock('STS\Contracts\Logic\Friends');
+        $this->friendsLogic = $this->mock(\STS\Contracts\Logic\Friends::class);
     }
 
     public function tearDown()
