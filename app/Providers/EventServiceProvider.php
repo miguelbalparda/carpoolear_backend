@@ -2,8 +2,8 @@
 
 namespace STS\Providers;
 
-use STS\Listeners\Ratings\CreateRatingDeleteTrip;
 use Illuminate\Support\Facades\Event;
+use STS\Listeners\Ratings\CreateRatingDeleteTrip;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
